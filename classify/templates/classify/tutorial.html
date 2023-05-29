@@ -1,0 +1,25 @@
+{%  extends "classify/base.html"  %}
+{% load static %}
+{%  block content  %}
+
+<section id="about" style="padding-top: 70px;">
+     <div class="container">
+          <div class="row">
+               <div class="col-md-8 col-sm-8">
+                    <div class="about-info">
+                         <h2>Tutorial Skrining</h2>
+                         <div>
+                              <img src="{%  static 'classify/images/example-mammogram.png'  %}" width="15%" style="margin-left: 10px; margin-bottom: 10px;">
+                              <p>1. Gambar mammogram direkomendasikan berformat .png</p>
+                              <p>2. Fokuskan gambar pada bagian payudara saja dengan arah vertikal</p>
+                              <p>3. Masukkan identitas pasien dan gambar mammogram pada menu Skrining</p>
+                              <p>4. Klik tombol SKRINING untuk melihat hasil apakah payudara normal atau abnormal</p>
+                              <p>6. Hasil skrining dapat dilihat kembali pada menu Riwayat</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</section>
+
+{%  endblock content  %}

@@ -1,0 +1,25 @@
+{%  extends "classify/base.html"  %}
+{% load static %}
+{%  block content  %}
+
+<section id="home" class="slider">
+     <div class="container">
+          <div class="row">
+               <div class="item item-first">
+                    <div class="caption">
+                         <div class="col-md-offset-1 col-md-10">
+                              <h3>Skrining</h3>
+                              <h1>Kanker Payudara</h1>
+                              <a href="{% url 'classify-skrining' %}" class="btn section-btn btn-default">MULAI DETEKSI</a>
+                              <div style="padding-top: 10px">
+                                   <a href="{% url 'classify-tutorial' %}" class="btn section-btn btn-default">BACA TUTORIAL</a>
+                                   <a href="{% url 'classify-riwayat' %}" class="btn section-btn btn-default">LIHAT RIWAYAT</a>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</section>
+
+{%  endblock content  %}

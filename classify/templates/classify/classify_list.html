@@ -1,0 +1,43 @@
+{%  extends "classify/base.html"  %}
+{% load static %}
+{%  block content  %}
+
+<section id="appointment" data-stellar-background-ratio="3" style="padding-top: 20px">
+    <div class="container">
+        <div class="section-title" style="text-align: center;">
+            <h3>Riwayat Skrining Kanker Payudara</h3>
+        </div>
+
+        <div class="col-md-12 col-sm-12">
+            <table class="table table-bordered table-hover">
+                <thead style="background-color: #4267b2; color: whitesmoke;">
+                    <tr>
+                        <th scope="col">Nama Pasien</th>
+                        <th scope="col">Tanggal Lahir</th>
+                        <th scope="col">No. Rekam Medis</th>
+                        <th scope="col">Hasil Skrining</th>
+                        <th scope="col">Tanggal Skrining</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in object_list %}
+                    <tr>
+                        <td>{{ object.nama_Pasien }}</td>
+                        <td>{{ object.tanggal_Lahir }}</td>
+                        <td>{{ object.nomer_Rekam_Medis }}</td>
+                        <td>{{ object.get_hasil_display }}</td>
+                        <td>{{ object.tanggal_Skrining }}</td>
+                        <td>
+                            <a class="btn" style="background-color: #a5c422; color: white" href="{%  url 'classify-hasil' object.id  %}">LIHAT</a>
+                            <a class="btn btn-danger" href="{%  url 'classify-hapus' object.id  %}">HAPUS</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+{%  endblock content  %}

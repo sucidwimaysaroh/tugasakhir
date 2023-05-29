@@ -1,0 +1,27 @@
+{% extends "classify/base.html" %}
+{% load static %}
+{% block content %}
+
+<section id="appointment" data-stellar-background-ratio="3" style="padding-top: 20px">
+    <div class="section-title" style="text-align: center; padding-bottom: 50px">
+        <h3>Skrining Kanker Payudara</h3>
+        <a><i class="fa fa-h-square"></i>ealth Center</a>
+    </div>
+
+    <div class="container" style="display: flex; align-items: center; justify-content: center;">
+        <div class="row col-md-4 col-sm-4" style="padding-right: 5%; padding-left: 5%">
+            <form id="appointment-form" role="form" method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group" style="padding-bottom: 10px">
+                    <h5>Apakah yakin ingin menghapus data "{{ object.nama_Pasien }}"?</h5>
+                </fieldset>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger" style="width: 49%">HAPUS</button>
+                    <a class="btn btn-default" style="width: 49%" href="{% url 'classify-riwayat'%}">BATAL</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{%  endblock content  %}

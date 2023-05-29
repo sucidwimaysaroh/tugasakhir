@@ -1,0 +1,24 @@
+{% extends "classify/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section id="appointment" data-stellar-background-ratio="3" style="padding-top: 20px">
+    <div class="section-title" style="text-align: center;">
+        <h3>Registrasi</h3>
+        <label><i class="fa fa-h-square"></i>ealth Center</label>
+    </div>
+
+    <div class="container" style="display: flex; align-items: center; justify-content: center;">
+        <div class="row col-md-4 col-sm-4">
+            <form id="appointment-form" role="form" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="form-control" id="cf-submit" name="submit">REGISTRASI</button>
+            </form>
+            <p>Sudah punya akun? <a href="{% url 'masuk' %}">Masuk</a></p>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

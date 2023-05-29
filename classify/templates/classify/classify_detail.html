@@ -1,0 +1,70 @@
+{% extends "classify/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section id="appointment" data-stellar-background-ratio="3" style="padding-top: 20px">
+     <div class="section-title" style="padding: 0;">
+          <div style="text-align: center;">
+               <h3>Hasil Skrining Kanker Payudara</h3>
+          </div>
+"
+          <div class="container" style="display: flex; align-items: center; justify-content: center;" enctype="multipart/form-data">
+               <div class="row col-md-4 col-sm-4">
+                    <div class="news-info">
+                         <img src="{{ classify.gambar_Mammogram.url }}" class="img-responsive">
+                         <a href="{{ classify.gambar_Mammogram.url }}">
+                              <label>Gambar Asli</label>
+                              <i class="fa fa-search-plus"></i>
+                         </a>
+                    </div>
+               </div>
+
+               <div class="row col-md-4 col-sm-4">
+                    <div class="news-info">
+                         <img src="{{ classify.gambar_Mammogram_Contrast_Stretching.url }}" class="img-responsive">
+                         <a href="{{ classify.gambar_Mammogram_Contrast_Stretching.url }}">
+                              <label>Gambar Contrast Stretching</label>
+                              <i class="fa fa-search-plus"></i>
+                         </a>
+                    </div>
+               </div>
+
+               <div class="row col-md-4 col-sm-4">
+                    <div class="team-info">
+                         <h3>{{ object.nama_Pasien }}</h3>
+                         <small>{{ object.tanggal_Skrining }}</small>
+                         <div>
+                              <label data-toggle="tooltip" title="Nomor Rekam Medis">
+                                   <i class="fa fa-vcard-o"></i> {{ object.nomer_Rekam_Medis }} /</label>
+                              <label data-toggle="tooltip" title="Tanggal Lahir">
+                                   <i class="fa fa-calendar-o"></i> {{ object.tanggal_Lahir }}</label>
+                         </div>
+                         <div class="team-contact-info" style="color: #A7B0B2; font-size: 75%">
+                              <small>{{ object.fitur }}</small>
+                         </div>
+                         <div class="team-contact-info">
+                              {% if object.hasil == '1' %}
+                                   <label>
+                                        Hasil :
+                                        <label style="color:red; font-weight:bold; font-size: 150%">{{ object.get_hasil_display }}</label>
+                                   </label>
+                              {% else %}
+                                   <label>
+                                        Hasil :
+                                        <label style="color:blue; font-weight:bold; font-size: 150%">{{ object.get_hasil_display }}</label>
+                                   </label>
+                              {% endif %}
+                         </div>
+                         <div style="padding-top: 20px">
+                              <a href="{% url 'classify-sunting' object.id %}">
+                                   <button class="form-control" id="cf-submit">PERBARUI DATA</button>
+                              </a>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</section>
+
+{%  endblock content  %}

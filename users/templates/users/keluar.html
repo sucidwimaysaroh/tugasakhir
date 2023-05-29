@@ -1,0 +1,15 @@
+{% extends "classify/base.html" %}
+{% load static %}
+{% block content %}
+
+<section id="appointment" data-stellar-background-ratio="3" style="padding-top: 20px">
+    <div class="section-title" style="text-align: center;">
+        <h3>Anda telah keluar</h3>
+        <label><i class="fa fa-h-square"></i>ealth Center</label>
+    </div>
+    <div style="text-align: center">
+        <p>Masuk kembali? <a href="{% url 'masuk' %}">Masuk</a></p>
+    </div>
+</section>
+
+{% endblock content %}
